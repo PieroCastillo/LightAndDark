@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:LightAndDark.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="LightAndDark.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="LightAndDark">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+  <Grid RowDefinitions="*,40,auto" ColumnDefinitions="*,20,*,20,*">
+    <Rectangle>
+      <Rectangle.Fill>
+        <SolidColorBrush Color="{Binding LightColor}"/>
+      </Rectangle.Fill>
+    </Rectangle>
+    <Rectangle Grid.Column="2">
+      <Rectangle.Fill>
+        <SolidColorBrush Color="{Binding BaseColor, Mode=TwoWay}"/>
+      </Rectangle.Fill>
+    </Rectangle>
+    <Rectangle Grid.Column="4">
+      <Rectangle.Fill>
+        <SolidColorBrush Color="{Binding DarkColor}"/>
+      </Rectangle.Fill>
+    </Rectangle>
+  </Grid>
+</Window>
